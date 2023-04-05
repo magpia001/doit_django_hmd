@@ -5,3 +5,7 @@ def index(request):
   posts = Post.objects.all().order_by('-id')
   print(posts)
   return render(request, 'blog/index.html', {'posts':posts})
+
+def single_post_page(request, pk=1):
+  post = Post.objects.get(pk=pk)
+  return render(request, 'blog/single_post_page.html', {'post':post})
