@@ -1,9 +1,9 @@
-from django.urls import path, include
+from django.urls import path
 from . import views
 
 urlpatterns = [
     # /blog/
-    path('', views.index, name='index'),
-    path('<int:pk>/', views.single_post_page, name='sing_post_page'),
+    path('', views.PostList.as_view(), name='post_list'),
+    path('<int:pk>/', views.PostDetail.as_view(), name='post_etail'),
 
 ]
