@@ -54,7 +54,7 @@
                               <a href="{{ p.get_absolute_url }}">{{ p.title }}</a>
                             </h5>
                             <p class="card-text">
-                              {{ p.content|truncatechars:100 }}
+                              {{ p.content|truncatewords:45 }}
                             </p>
                             <a class="btn btn-primary"  href="{{ p.get_absolute_url }}">
                               Read More →
