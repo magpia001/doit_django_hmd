@@ -10,6 +10,10 @@
         {% if category %} 
         <span class="badge badge-secondary">{{ category }}</span>
         {% endif %}
+        {% if tag %} 
+        <span class="badge badge-success"><i class="bi bi-tags"></i> {{ tag }}</span>
+        {% endif %}
+
     </h1>
     {% if post_list.exists %}
         <!-- Blog post-->
@@ -30,15 +34,18 @@
                 </p>
                 <!-- tag 표시 -->
                 {% if p.tag.exists %}
-                <i class="bi bi-tags"></i>
-                {% for tg in p.tag.iterator %}
-                <a href="{{ tg.get_absolute_url }}">
-                    <span class="badge badge-pill badge-secondary">
-                        {{ tg }}
-                    </span>
-                </a>
-                {% endfor %}
-                <br><br>
+                    <i class="bi bi-tags"></i>
+                    <!-- post를 리스트로 플릿에 넘겨받았을 때, 
+                    => post를 for문으로 순회하고, 
+                    ManytoMany 관계의 컬럼(tags)의 데이터 랜더링 방법 -->
+                    {% for tg in p.tag.iterator %}
+                    <a href="{{ tg.get_absolute_url }}">
+                        <span class="badge badge-pill badge-secondary">
+                            {{ tg }}
+                        </span>
+                    </a>
+                    {% endfor %}
+                    <br><br>
                 {% endif %}
                 <a class="btn btn-primary"  href="{{ p.get_absolute_url }}">
                 Read More →

@@ -35,6 +35,8 @@
         </p>
         {% if post.tag.exists %}
             <i class="bi bi-tags"></i>
+            <!-- 레코드 하나를 템플릿으로 넘겨받았을 때, 
+                ManytoMany 관계의 컬럼(tags)의 데이터 랜더링 방법 -->
             {% for tg in post.tag.all %}
             <a href="{{ tg.get_absolute_url }}">
                 <span class="badge badge-pill badge-secondary">

@@ -9,6 +9,9 @@ urlpatterns = [
     # /blog/category/{self.slug}
     # /blog/category/파이썬
     path('category/<str:slug>/', views.category_page, name='category_fiter'),
+    # /blog/tag/{self.slug}
+    # /blog/tag/프로그래밍
+    path('tag/<str:slug>/', views.tag_page, name='tag_filter'),
 
 
 ]
