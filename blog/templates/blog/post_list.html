@@ -28,6 +28,18 @@
                 <p class="card-text">
                 {{ p.content|truncatewords:45 }}
                 </p>
+                <!-- tag 표시 -->
+                {% if p.tag.exists %}
+                <i class="bi bi-tags"></i>
+                {% for tg in p.tag.iterator %}
+                <a href="{{ tg.get_absolute_url }}">
+                    <span class="badge badge-pill badge-secondary">
+                        {{ tg }}
+                    </span>
+                </a>
+                {% endfor %}
+                <br><br>
+                {% endif %}
                 <a class="btn btn-primary"  href="{{ p.get_absolute_url }}">
                 Read More →
                 </a>

@@ -33,6 +33,17 @@
         <p class="lead">
             {{ post.content }}
         </p>
+        {% if post.tag.exists %}
+            <i class="bi bi-tags"></i>
+            {% for tg in post.tag.all %}
+            <a href="{{ tg.get_absolute_url }}">
+                <span class="badge badge-pill badge-secondary">
+                    {{ tg }}
+                </span>
+            </a>
+            {% endfor %}
+        {% endif %}
+        <br>
         {% if post.file_upload %}
             <a href="{{ post.file_upload.url }}" class="btn btn-outline-dark" role="button" download>
                 download

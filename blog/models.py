@@ -46,7 +46,7 @@ class Post(models.Model):
 
 
   def __str__(self):
-    return f'[{self.id}] {self.title} :: {self.author}'
+    return f'[{self.id}] {self.title} :: {self.author}::{self.tag}'
   
   def get_absolute_url(self):
     return f'/blog/{self.pk}/'

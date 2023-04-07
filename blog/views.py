@@ -13,11 +13,11 @@ class PostList(ListView):
 
   def get_context_data(self, **kwargs):
     context = super(PostList, self).get_context_data()
+    print(context['object_list'][0])
     context['categories'] = Category.objects.all()
     # Post 테이블에서 category 필드를 선택안 한 포스트의 갯수
     context['no_category_post_cnt'] = Post.objects.filter(category=None).count()
     return context
-
 
 class PostDetail(DetailView):
   model = Post
