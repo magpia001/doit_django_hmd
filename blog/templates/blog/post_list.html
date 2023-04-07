@@ -11,7 +11,7 @@
     {% if post_list.exists %}
         <!-- Blog post-->
         {% for p in post_list %}
-        <div class="card mb-4">
+        <div class="card mb-4" id="post-{{ p.id }}">
             {% if p.head_image %}
             <img class="card-img-top" src="{{ p.head_image.url }}" alt="{{ p.head_image.url }}" />
             {% else %}
@@ -19,6 +19,7 @@
             {% endif %}
             <div class="card-body">
                 <h5 class="card-title">
+                <span class="badge badge-info float-right">{{ p.category }}</span>
                 <a href="{{ p.get_absolute_url }}">{{ p.title }}</a>
                 </h5>
                 <p class="card-text">
