@@ -14,6 +14,9 @@ class Category(models.Model):
   def __str__(self):
     return self.name
   
+  def get_absolute_url(self):
+    return f"/blog/category/{self.slug}"
+  
   
 
 
@@ -28,7 +31,7 @@ class Post(models.Model):
   updated_at = models.DateField(auto_now=True)
 
   author = models.ForeignKey(User, null=True, on_delete=models.SET_NULL)
-  category = models.ForeignKey(Category, null=True, on_delete=models.SET_NULL)
+  category = models.ForeignKey(Category, null=True, blank=True ,on_delete=models.SET_NULL)
 
   class Meta:
     verbose_name_plural = '블로그 포스트'
