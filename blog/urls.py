@@ -12,6 +12,6 @@ urlpatterns = [
     # /blog/tag/{self.slug}
     # /blog/tag/프로그래밍
     path('tag/<str:slug>/', views.tag_page, name='tag_filter'),
-
-
+    # /blog/create_post
+    path('create_post', views.PostCreate.as_view(), name='create_post'),
 ]
