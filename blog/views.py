@@ -3,6 +3,7 @@ from django.views.generic import ListView, DetailView, CreateView
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 from .models import Post, Category, Tag
+from .forms import PostForm
 
 
 # Create your views here.
@@ -106,8 +107,10 @@ def tag_page(request, slug):
 
 class PostCreate(LoginRequiredMixin, CreateView):
     model = Post
-    fields = ['title', 'hook_text', 'content',
-              'head_image', 'file_upload', 'category']
+    form_class = PostForm
+    template_name = 'blog/post_form.html'
+    # fields = ['title', 'hook_text', 'content',
+    #           'head_image', 'file_upload', 'category']
 
     def form_valid(self, form):
         current_user = self.request.user

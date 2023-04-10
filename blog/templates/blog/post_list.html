@@ -30,7 +30,7 @@
                 <a href="{{ p.get_absolute_url }}">{{ p.title }}</a>
                 </h5>
                 <p class="card-text">
-                {{ p.content|truncatewords:45 }}
+                {{ p.content | safe | truncatewords:45 }}
                 </p>
                 <!-- tag 표시 -->
                 {% if p.tag.exists %}

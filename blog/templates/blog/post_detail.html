@@ -30,7 +30,8 @@
         <hr />
         <!-- Post content-->
         <p class="lead">
-            {{ post.content }}
+            <!-- post.content | safe <= html tag 노출 방지 -->
+            {{ post.content | safe }}
         </p>
         {% if post.tag.exists %}
             <i class="bi bi-tags"></i>
