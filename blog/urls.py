@@ -18,5 +18,9 @@ urlpatterns = [
     path('<int:pk>/new_comment/', views.new_comment, name='new_comment'),
     # update comment
     path('update_comment/<int:pk>/', views.CommentUpdate.as_view(), name='update_comment'),
+    
+    # delete comment
+    path('delete_comment/<int:pk>/', views.delete_comment, name='delete_comment'),
+
 
 ]
