@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Post, Category, Tag
+from .models import Post, Category, Tag, Comment
 
 # summernote 관련 라이브러리
 from django_summernote.admin import SummernoteModelAdmin
@@ -19,4 +19,7 @@ class TagAdmin(admin.ModelAdmin):
 # admin site 등록
 admin.site.register(Category, CategoryAdmin)
 admin.site.register(Tag, TagAdmin)
+admin.site.register(Comment)
+
+
 

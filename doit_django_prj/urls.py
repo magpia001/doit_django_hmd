@@ -27,6 +27,11 @@ urlpatterns = [
     path('', include('single_pages.urls')),
 
     path('summernote/', include('django_summernote.urls')),
+
+    # all-auth path
+    path('accounts/', include('allauth.urls')),
+    # markdownx path
+    path('markdownx/', include('markdownx.urls'))
 ]
 
 if settings.DEBUG:

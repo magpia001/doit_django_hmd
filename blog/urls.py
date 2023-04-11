@@ -14,4 +14,7 @@ urlpatterns = [
     path('tag/<str:slug>/', views.tag_page, name='tag_filter'),
     # /blog/create_post
     path('create_post', views.PostCreate.as_view(), name='create_post'),
+    # new comment
+    path('<int:pk>/new_comment/', views.new_comment, name='new_comment'),
+
 ]
